@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro'
+import { getCatalog, slugOf, money } from '../../lib/plans.js'
+const cat = await getCatalog()
+const rows = cat.countries.map((c) => ({ c, plans: cat.byCountry[c.code] || [] }))
+const alternates = [...cat.countries.map((c) => ({ hreflang: `es-${c.code}`, href: `/precios/${slugOf(c.code)}` })), { hreflang: 'x-default', href: '/precios' }]
+---
+<Base title="Precios de TillDash+ por país" description={`Planes de TillDash+ para restaurantes, bares y discotecas en ${cat.countries.map((c) => c.name).join(', ')}, con precios en la moneda de cada país.`} alternates={alternates}>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Inicio</a> › Precios</p>
+      <h1>Planes y precios por país</h1>
+      <p class="lead">Elige tu país para ver los planes en tu moneda.</p>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap country-grid">
+      {rows.map(({ c, plans }) => (
+        <a class="country-card" href={`/precios/${slugOf(c.code)}`}>
+          <img src={`/flags/${c.code.toLowerCase()}.svg`} alt="" width="44" height="33" loading="lazy" />
+          <div>
+            <h2>{c.name}</h2>
+            <p>{c.currencyName} · <b>{c.currency}</b></p>
+            {plans.length ? <p class="from">Desde <b>{money(Math.min(...plans.map((p) => p.priceMonth)), c)}</b> / mes</p> : <p class="from">Próximamente</p>}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

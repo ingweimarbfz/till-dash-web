@@ -1,0 +1,13 @@
+---
+// Selector de país: enlaces a la página de precios de cada país (sirve sin JavaScript y para Google).
+import { slugOf } from '../lib/plans.js'
+const { countries, current } = Astro.props
+---
+<nav class="country-pick" aria-label="Precios por país">
+  {countries.map((c) => (
+    <a href={`/precios/${slugOf(c.code)}`} aria-current={c.code === current ? 'page' : undefined}>
+      <img src={`/flags/${c.code.toLowerCase()}.svg`} alt="" width="20" height="15" loading="lazy" />
+      <span>{c.name}</span><b>{c.currency}</b>
+    </a>
+  ))}
+</nav>

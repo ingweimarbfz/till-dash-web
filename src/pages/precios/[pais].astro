@@ -1,0 +1,80 @@
+---
+import Base from '../../layouts/Base.astro'
+import PlanCards from '../../components/PlanCards.astro'
+import CountryPicker from '../../components/CountryPicker.astro'
+import { getCatalog, slugOf, money, limitText, GROUPS, LIMIT_ROWS } from '../../lib/plans.js'
+import { demoLink } from '../../lib/config.js'
+
+// Una página por país, con sus precios en su moneda (bueno para Google: "software para restaurantes Perú", etc.).
+export async function getStaticPaths () {
+  const cat = await getCatalog()
+  return cat.countries.map((c) => ({ params: { pais: slugOf(c.code) }, props: { code: c.code } }))
+}
+const cat = await getCatalog()
+const country = cat.countries.find((c) => c.code === Astro.props.code)
+const plans = cat.byCountry[country.code] || []
+const groups = Object.entries(GROUPS).map(([g, l]) => ({ g, l, items: cat.features.filter((f) => f.group === g) })).filter((x) => x.items.length)
+const alternates = [...cat.countries.map((c) => ({ hreflang: `es-${c.code}`, href: `/precios/${slugOf(c.code)}` })), { hreflang: 'x-default', href: '/precios' }]
+const jsonLd = [
+  {
+    '@context': 'https://schema.org', '@type': 'Product', name: `TillDash+ para restaurantes y bares en ${country.name}`,
+    description: `Software para restaurantes, bares y discotecas con precios en ${country.currencyName}.`, brand: { '@type': 'Brand', name: 'TillDash+' },
+    offers: {
+      '@type': 'AggregateOffer', priceCurrency: country.currency, offerCount: plans.length,
+      lowPrice: String(Math.min(...plans.map((p) => p.priceMonth))), highPrice: String(Math.max(...plans.map((p) => p.priceMonth))),
+      offers: plans.map((p) => ({ '@type': 'Offer', name: `Plan ${p.name} (mensual)`, price: String(p.priceMonth), priceCurrency: country.currency, areaServed: { '@type': 'Country', name: country.name } }))
+    }
+  },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: Astro.site.href },
+    { '@type': 'ListItem', position: 2, name: 'Precios', item: new URL('/precios', Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: country.name, item: new URL(`/precios/${slugOf(country.code)}`, Astro.site).href }
+  ] }
+]
+const min = plans.length ? money(Math.min(...plans.map((p) => p.priceMonth)), country) : null
+---
+<Base title={`Software para restaurantes y bares en ${country.name}: planes y precios en ${country.currency}`} description={`Precios de TillDash+ en ${country.name}${min ? ` desde ${min} al mes` : ''}, en ${country.currencyName}. Mesas, pedidos, carta por QR, comandas, caja e inventario para tu restaurante, bar o discoteca.`} jsonLd={jsonLd} lang={`es-${country.code}`} alternates={alternates}>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Inicio</a> › <a href="/precios">Precios</a> › {country.name}</p>
+      <h1><img src={`/flags/${country.code.toLowerCase()}.svg`} alt="" width="40" height="30" class="h-flag" /> Planes de TillDash+ en {country.name}</h1>
+      <p class="lead">Precios en {country.currencyName} ({country.currency}), con pago mensual o anual. Todos incluyen mesas y pedidos, caja con propinas, carta e inventario.</p>
+      <CountryPicker countries={cat.countries} current={country.code} />
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap">
+      {plans.length ? <PlanCards plans={plans} country={country} /> : <p>Muy pronto tendremos planes para {country.name}. <a href={demoLink(`información de TillDash+ en ${country.name}`)}>Escríbenos</a>.</p>}
+    </div>
+  </section>
+  {plans.length > 0 && (
+    <section class="sec alt">
+      <div class="wrap">
+        <h2>Compara los planes</h2>
+        <div class="table-wrap">
+          <table class="compare">
+            <thead><tr><th>Incluye</th>{plans.map((p) => <th>{p.name}</th>)}</tr></thead>
+            <tbody>
+              <tr><td>Precio mensual ({country.currency})</td>{plans.map((p) => <td><b>{money(p.priceMonth, country)}</b></td>)}</tr>
+              <tr><td>Precio anual ({country.currency})</td>{plans.map((p) => <td>{money(p.priceYear, country)}</td>)}</tr>
+              {LIMIT_ROWS.map(([k, l]) => <tr><td>{l}</td>{plans.map((p) => <td>{p.limits[k] === 0 ? <span class="no">—</span> : limitText(p.limits[k])}</td>)}</tr>)}
+              {groups.map((g) => (
+                <>
+                  <tr class="grp"><td colspan={plans.length + 1}>{g.l}</td></tr>
+                  {g.items.map((f) => <tr><td>{f.label}</td>{plans.map((p) => <td>{p.features.includes(f.key) ? <span class="yes" aria-label="Incluido">✓</span> : <span class="no" aria-label="No incluido">—</span>}</td>)}</tr>)}
+                </>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Valores en {country.currency} para establecimientos en {country.name}; los impuestos se aplican según la ley del país.</p>
+      </div>
+    </section>
+  )}
+  <section class="band">
+    <div class="wrap band-in">
+      <h2>¿Tienes dudas sobre el plan para tu establecimiento en {country.name}?</h2>
+      <a class="btn lg" href={demoLink(`asesoría de planes de TillDash+ en ${country.name}`)}>Hablar con un asesor</a>
+    </div>
+  </section>
+</Base>

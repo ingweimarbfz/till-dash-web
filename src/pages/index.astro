@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro'
+import PlanCards from '../components/PlanCards.astro'
+import CountryPicker from '../components/CountryPicker.astro'
+import { getCatalog, money } from '../lib/plans.js'
+import { MODULES } from '../lib/modules.js'
+import { BRAND, demoLink } from '../lib/config.js'
+
+const cat = await getCatalog()
+const country = cat.countries.find((c) => c.code === 'CO') || cat.countries[0]
+const plans = cat.byCountry[country.code] || []
+const FAQ = [
+  ['¿Qué es TillDash+?', 'Un software en la nube para restaurantes, bares, discotecas, cafeterías y markets: mesas y pedidos, carta digital por QR, comandas de cocina y bar, caja con propinas, inventario por bodega, finanzas y reportes.'],
+  ['¿En qué países funciona?', `En ${cat.countries.map((c) => c.name).join(', ')}. Cada establecimiento trabaja en la moneda de su país y los planes tienen precio en esa moneda.`],
+  ['¿Los meseros lo pueden usar desde el celular?', 'Sí. Abrir mesas, tomar pedidos, ver qué platos están listos y atender los llamados de las mesas está pensado para el celular o la tablet del mesero.'],
+  ['¿Cómo funciona la carta por QR?', 'Cada mesa tiene su código QR. El cliente lo escanea, ve la carta con fotos, llama al mesero, pide la cuenta o hace su pedido. El personal recibe un aviso con sonido. Tú decides si el pedido entra directo o si el mesero lo confirma.'],
+  ['¿Puedo manejar varias sucursales?', 'Sí. Cada sucursal tiene sus mesas, cajas y bodega, y la bodega principal abastece a todas. Cuántas sucursales, empleados y mesas puedes tener depende del plan.'],
+  ['¿Mi información está separada de otros establecimientos?', 'Sí. Cada establecimiento tiene sus usuarios, sucursales, productos y dinero aislados de los demás.'],
+  ['¿Hay periodo de prueba?', `Sí. Los planes incluyen ${plans[0]?.trialDays || 15} días de prueba para que lo uses con tu propia carta.`]
+]
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'Organization', name: BRAND, url: Astro.site.href, logo: new URL('/app-icon-512.png', Astro.site).href },
+  {
+    '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: BRAND, applicationCategory: 'BusinessApplication', operatingSystem: 'Web, Android, iOS',
+    description: 'Software para restaurantes, bares y discotecas: mesas y pedidos, carta por QR, comandas, caja con propinas, inventario y reportes.',
+    offers: plans.map((p) => ({ '@type': 'Offer', name: `Plan ${p.name}`, price: String(p.priceMonth), priceCurrency: p.currency, areaServed: country.name }))
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }
+]
+---
+<Base title="TillDash+: software para restaurantes, bares y discotecas" description={`Sistema POS en la nube para restaurantes, bares y discotecas: mesas, pedidos, carta digital por QR, comandas, caja con propinas, inventario y reportes. Planes desde ${money(plans[0]?.priceMonth || 0, country)} al mes en Colombia y precios en la moneda de cada país.`} jsonLd={jsonLd} lang="es">
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <p class="kicker">Software para restaurantes, bares y discotecas</p>
+        <h1>Tu salón, tu cocina y tu caja en un solo lugar</h1>
+        <p class="lead">Abre mesas y toma pedidos desde el celular, deja que tus clientes pidan con el QR de su mesa, manda cada plato a cocina o barra y cuadra la caja al final del turno. TillDash+ funciona en {cat.countries.length} países de Latinoamérica, cada uno en su moneda.</p>
+        <div class="cta">
+          <a class="btn lg" href={demoLink()}>Pedir demostración</a>
+          <a class="btn lg outline light" href="/precios">Ver precios en tu país</a>
+        </div>
+        <ul class="checks">
+          <li>En la nube, sin instalar nada</li>
+          <li>Hecho para el celular del mesero</li>
+          <li>Varias sucursales y bodegas</li>
+          <li>Precios en tu moneda</li>
+        </ul>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <p class="hc-title">Salón · viernes 9:40 p. m.</p>
+        <div class="hc-row"><span>Mesa 2 · 4 personas · 38 min</span><b>2 listos</b></div>
+        <div class="hc-row"><span>Terraza 1 · pedido por QR</span><b>Nuevo</b></div>
+        <div class="hc-row bad"><span>Mesa 4 · pide la cuenta</span><b>Cobrar</b></div>
+        <div class="hc-row"><span>Barra 3 · llama al mesero</span><b>Atender</b></div>
+        <div class="hc-total"><span>Mesas ocupadas</span><b>11 de 16</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>Todo lo que necesita tu establecimiento</h2>
+      <p class="sec-lead">Desde que se sienta el cliente hasta que cuadras la caja y repartes las propinas.</p>
+      <div class="cards">
+        {MODULES.slice(0, 8).map((m) => (
+          <a class="card" href={`/modulos#${m.key}`}>
+            <span class="card-ico" aria-hidden="true">{m.icon}</span>
+            <h3>{m.name}</h3>
+            <p>{m.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="planes">
+    <div class="wrap">
+      <h2>Planes y precios en {country.name}</h2>
+      <p class="sec-lead">Precios en {country.currencyName} ({country.currency}). ¿Estás en otro país? Elige el tuyo:</p>
+      <CountryPicker countries={cat.countries} current={country.code} />
+      <PlanCards plans={plans} country={country} />
+      <p class="center"><a href="/precios/colombia">Comparar todos los planes →</a></p>
+    </div>
+  </section>
+
+  <section class="sec" id="preguntas">
+    <div class="wrap narrow">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq">
+        {FAQ.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap band-in">
+      <h2>¿Quieres verlo con la carta de tu establecimiento?</h2>
+      <a class="btn lg" href={demoLink()}>Pedir demostración</a>
+    </div>
+  </section>
+</Base>
