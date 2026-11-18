@@ -1,0 +1,29 @@
+---
+import Logo from './Logo.astro'
+import { getCatalog, slugOf } from '../lib/plans.js'
+import { APP_URL } from '../lib/config.js'
+const { countries } = await getCatalog()
+---
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <Logo size={26} />
+      <p>Software en la nube para restaurantes, bares, discotecas y cafeterías en Latinoamérica: mesas, pedidos, carta QR, caja e inventario.</p>
+    </div>
+    <div>
+      <h3>Precios por país</h3>
+      <ul class="foot-countries">
+        {countries.map((c) => <li><a href={`/precios/${slugOf(c.code)}`}><img src={`/flags/${c.code.toLowerCase()}.svg`} alt="" width="18" height="13" loading="lazy" /> {c.name} · {c.currency}</a></li>)}
+      </ul>
+    </div>
+    <div>
+      <h3>TillDash+</h3>
+      <ul>
+        <li><a href="/modulos">Módulos</a></li>
+        <li><a href="/precios">Planes y precios</a></li>
+        <li><a href={`${APP_URL}/login`}>Ingresar a la app</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="wrap copy">© {new Date().getFullYear()} TillDash+. Todos los derechos reservados.</p>
+</footer>

@@ -1,0 +1,1586 @@
+{
+  "countries": [
+    {
+      "code": "CO",
+      "name": "Colombia",
+      "currency": "COP",
+      "currencyName": "Peso colombiano",
+      "locale": "es-CO",
+      "timezone": "America/Bogota",
+      "phonePrefix": "+57",
+      "active": true,
+      "sortOrder": 1
+    },
+    {
+      "code": "PA",
+      "name": "Panamá",
+      "currency": "USD",
+      "currencyName": "Dólar estadounidense",
+      "locale": "es-PA",
+      "timezone": "America/Panama",
+      "phonePrefix": "+507",
+      "active": true,
+      "sortOrder": 2
+    },
+    {
+      "code": "VE",
+      "name": "Venezuela",
+      "currency": "USD",
+      "currencyName": "Dólar estadounidense",
+      "locale": "es-VE",
+      "timezone": "America/Caracas",
+      "phonePrefix": "+58",
+      "active": true,
+      "sortOrder": 3
+    },
+    {
+      "code": "EC",
+      "name": "Ecuador",
+      "currency": "USD",
+      "currencyName": "Dólar estadounidense",
+      "locale": "es-EC",
+      "timezone": "America/Guayaquil",
+      "phonePrefix": "+593",
+      "active": true,
+      "sortOrder": 4
+    },
+    {
+      "code": "PE",
+      "name": "Perú",
+      "currency": "PEN",
+      "currencyName": "Sol peruano",
+      "locale": "es-PE",
+      "timezone": "America/Lima",
+      "phonePrefix": "+51",
+      "active": true,
+      "sortOrder": 5
+    },
+    {
+      "code": "BO",
+      "name": "Bolivia",
+      "currency": "BOB",
+      "currencyName": "Boliviano",
+      "locale": "es-BO",
+      "timezone": "America/La_Paz",
+      "phonePrefix": "+591",
+      "active": true,
+      "sortOrder": 6
+    },
+    {
+      "code": "BR",
+      "name": "Brasil",
+      "currency": "BRL",
+      "currencyName": "Real brasileño",
+      "locale": "pt-BR",
+      "timezone": "America/Sao_Paulo",
+      "phonePrefix": "+55",
+      "active": true,
+      "sortOrder": 7
+    },
+    {
+      "code": "PY",
+      "name": "Paraguay",
+      "currency": "PYG",
+      "currencyName": "Guaraní",
+      "locale": "es-PY",
+      "timezone": "America/Asuncion",
+      "phonePrefix": "+595",
+      "active": true,
+      "sortOrder": 8
+    },
+    {
+      "code": "CL",
+      "name": "Chile",
+      "currency": "CLP",
+      "currencyName": "Peso chileno",
+      "locale": "es-CL",
+      "timezone": "America/Santiago",
+      "phonePrefix": "+56",
+      "active": true,
+      "sortOrder": 9
+    },
+    {
+      "code": "AR",
+      "name": "Argentina",
+      "currency": "ARS",
+      "currencyName": "Peso argentino",
+      "locale": "es-AR",
+      "timezone": "America/Argentina/Buenos_Aires",
+      "phonePrefix": "+54",
+      "active": true,
+      "sortOrder": 10
+    },
+    {
+      "code": "UY",
+      "name": "Uruguay",
+      "currency": "UYU",
+      "currencyName": "Peso uruguayo",
+      "locale": "es-UY",
+      "timezone": "America/Montevideo",
+      "phonePrefix": "+598",
+      "active": true,
+      "sortOrder": 11
+    }
+  ],
+  "features": [
+    {
+      "key": "mesas",
+      "label": "Mesas, pedidos y traslados",
+      "group": "operacion",
+      "description": "Abre mesas, toma pedidos con propina, cortesías y traslados entre mesas.",
+      "core": true,
+      "sortOrder": 1
+    },
+    {
+      "key": "caja",
+      "label": "Caja, cobro y propinas",
+      "group": "operacion",
+      "description": "Apertura con base, pagos mixtos, cierre con arqueo y reparto de propinas.",
+      "core": true,
+      "sortOrder": 2
+    },
+    {
+      "key": "productos",
+      "label": "Carta, categorías e inventario",
+      "group": "catalogo",
+      "description": "Productos con foto, categorías, bodegas por sucursal y alertas de stock.",
+      "core": true,
+      "sortOrder": 3
+    },
+    {
+      "key": "comandas",
+      "label": "Comandas de cocina y bar",
+      "group": "operacion",
+      "description": "Pantalla de cocina y bar con tiempos de preparación.",
+      "core": false,
+      "sortOrder": 4
+    },
+    {
+      "key": "carta_qr",
+      "label": "Carta por QR y llamado al mesero",
+      "group": "clientes",
+      "description": "El cliente escanea el QR de su mesa, ve la carta, llama al mesero o hace su pedido.",
+      "core": false,
+      "sortOrder": 10
+    },
+    {
+      "key": "cuentas_por_cobrar",
+      "label": "Cuentas por cobrar",
+      "group": "operacion",
+      "description": "Lo que no se cobra en el turno queda como cuenta por cobrar con abonos.",
+      "core": false,
+      "sortOrder": 11
+    },
+    {
+      "key": "promociones",
+      "label": "Promociones y descuentos",
+      "group": "catalogo",
+      "description": "Horas felices, combos y descuentos por fechas y horarios.",
+      "core": false,
+      "sortOrder": 12
+    },
+    {
+      "key": "incidentes",
+      "label": "Incidentes y pérdidas",
+      "group": "control",
+      "description": "Roturas, faltantes y devoluciones con su responsable.",
+      "core": false,
+      "sortOrder": 20
+    },
+    {
+      "key": "reportes",
+      "label": "Reportes de ventas, productos y meseros",
+      "group": "control",
+      "description": "Ventas por día, semana o rango; productos, meseros, propinas y uso de mesas.",
+      "core": false,
+      "sortOrder": 21
+    },
+    {
+      "key": "finanzas",
+      "label": "Finanzas, bóveda y socios",
+      "group": "control",
+      "description": "Fondos por sucursal, gastos, aportes, utilidades y retiros de socios.",
+      "core": false,
+      "sortOrder": 22
+    },
+    {
+      "key": "bitacora",
+      "label": "Bitácora del sistema",
+      "group": "control",
+      "description": "Quién hizo qué y cuándo dentro del sistema.",
+      "core": false,
+      "sortOrder": 23
+    },
+    {
+      "key": "telegram",
+      "label": "Avisos por Telegram",
+      "group": "control",
+      "description": "Grupos por sucursal para ventas, caja, stock y llamados.",
+      "core": false,
+      "sortOrder": 24
+    },
+    {
+      "key": "marca",
+      "label": "Colores, logo y fuente propios",
+      "group": "marca",
+      "description": "El sistema y la carta con la imagen de tu establecimiento.",
+      "core": false,
+      "sortOrder": 30
+    }
+  ],
+  "byCountry": {
+    "CO": [
+      {
+        "id": 1,
+        "code": "esencial",
+        "name": "Esencial",
+        "tagline": "Para el café, el bar o el restaurante que empieza a ordenar su operación.",
+        "limits": {
+          "sites": 1,
+          "admins": 1,
+          "employees": 5,
+          "tables": 15,
+          "products": 150
+        },
+        "support": "WhatsApp en horario hábil",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "1 sucursal y 5 empleados",
+          "Hasta 15 mesas",
+          "Pedidos, caja y propinas",
+          "Carta, categorías e inventario"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "cuentas_por_cobrar"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 1,
+        "active": true,
+        "currency": "COP",
+        "priceMonth": 79900,
+        "priceYear": 798700
+      },
+      {
+        "id": 2,
+        "code": "profesional",
+        "name": "Profesional",
+        "tagline": "Para el establecimiento con buen movimiento que quiere vender más y controlar todo.",
+        "limits": {
+          "sites": 3,
+          "admins": 3,
+          "employees": 25,
+          "tables": 60,
+          "products": 600
+        },
+        "support": "WhatsApp y llamada",
+        "highlight": true,
+        "badge": "Más elegido",
+        "bullets": [
+          "3 sucursales y 25 empleados",
+          "Hasta 60 mesas",
+          "Carta por QR con pedido desde la mesa",
+          "Reportes, promociones e incidentes"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "telegram"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 2,
+        "active": true,
+        "currency": "COP",
+        "priceMonth": 159900,
+        "priceYear": 1598000
+      },
+      {
+        "id": 3,
+        "code": "premium",
+        "name": "Premium",
+        "tagline": "Para grupos, discotecas y cadenas con varias sucursales y socios.",
+        "limits": {
+          "sites": null,
+          "admins": 10,
+          "employees": null,
+          "tables": null,
+          "products": null
+        },
+        "support": "Prioritario con acompañamiento",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "Sucursales, mesas y empleados ilimitados",
+          "Finanzas, bóveda y socios",
+          "Bitácora y avisos por Telegram",
+          "Tu marca: colores, logo y fuente"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "finanzas",
+          "bitacora",
+          "telegram",
+          "marca"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 3,
+        "active": true,
+        "currency": "COP",
+        "priceMonth": 299900,
+        "priceYear": 2998000
+      }
+    ],
+    "PA": [
+      {
+        "id": 1,
+        "code": "esencial",
+        "name": "Esencial",
+        "tagline": "Para el café, el bar o el restaurante que empieza a ordenar su operación.",
+        "limits": {
+          "sites": 1,
+          "admins": 1,
+          "employees": 5,
+          "tables": 15,
+          "products": 150
+        },
+        "support": "WhatsApp en horario hábil",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "1 sucursal y 5 empleados",
+          "Hasta 15 mesas",
+          "Pedidos, caja y propinas",
+          "Carta, categorías e inventario"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "cuentas_por_cobrar"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 1,
+        "active": true,
+        "currency": "USD",
+        "priceMonth": 22,
+        "priceYear": 220
+      },
+      {
+        "id": 2,
+        "code": "profesional",
+        "name": "Profesional",
+        "tagline": "Para el establecimiento con buen movimiento que quiere vender más y controlar todo.",
+        "limits": {
+          "sites": 3,
+          "admins": 3,
+          "employees": 25,
+          "tables": 60,
+          "products": 600
+        },
+        "support": "WhatsApp y llamada",
+        "highlight": true,
+        "badge": "Más elegido",
+        "bullets": [
+          "3 sucursales y 25 empleados",
+          "Hasta 60 mesas",
+          "Carta por QR con pedido desde la mesa",
+          "Reportes, promociones e incidentes"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "telegram"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 2,
+        "active": true,
+        "currency": "USD",
+        "priceMonth": 42,
+        "priceYear": 420
+      },
+      {
+        "id": 3,
+        "code": "premium",
+        "name": "Premium",
+        "tagline": "Para grupos, discotecas y cadenas con varias sucursales y socios.",
+        "limits": {
+          "sites": null,
+          "admins": 10,
+          "employees": null,
+          "tables": null,
+          "products": null
+        },
+        "support": "Prioritario con acompañamiento",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "Sucursales, mesas y empleados ilimitados",
+          "Finanzas, bóveda y socios",
+          "Bitácora y avisos por Telegram",
+          "Tu marca: colores, logo y fuente"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "finanzas",
+          "bitacora",
+          "telegram",
+          "marca"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 3,
+        "active": true,
+        "currency": "USD",
+        "priceMonth": 79,
+        "priceYear": 790
+      }
+    ],
+    "VE": [
+      {
+        "id": 1,
+        "code": "esencial",
+        "name": "Esencial",
+        "tagline": "Para el café, el bar o el restaurante que empieza a ordenar su operación.",
+        "limits": {
+          "sites": 1,
+          "admins": 1,
+          "employees": 5,
+          "tables": 15,
+          "products": 150
+        },
+        "support": "WhatsApp en horario hábil",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "1 sucursal y 5 empleados",
+          "Hasta 15 mesas",
+          "Pedidos, caja y propinas",
+          "Carta, categorías e inventario"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "cuentas_por_cobrar"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 1,
+        "active": true,
+        "currency": "USD",
+        "priceMonth": 18,
+        "priceYear": 180
+      },
+      {
+        "id": 2,
+        "code": "profesional",
+        "name": "Profesional",
+        "tagline": "Para el establecimiento con buen movimiento que quiere vender más y controlar todo.",
+        "limits": {
+          "sites": 3,
+          "admins": 3,
+          "employees": 25,
+          "tables": 60,
+          "products": 600
+        },
+        "support": "WhatsApp y llamada",
+        "highlight": true,
+        "badge": "Más elegido",
+        "bullets": [
+          "3 sucursales y 25 empleados",
+          "Hasta 60 mesas",
+          "Carta por QR con pedido desde la mesa",
+          "Reportes, promociones e incidentes"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "telegram"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 2,
+        "active": true,
+        "currency": "USD",
+        "priceMonth": 35,
+        "priceYear": 350
+      },
+      {
+        "id": 3,
+        "code": "premium",
+        "name": "Premium",
+        "tagline": "Para grupos, discotecas y cadenas con varias sucursales y socios.",
+        "limits": {
+          "sites": null,
+          "admins": 10,
+          "employees": null,
+          "tables": null,
+          "products": null
+        },
+        "support": "Prioritario con acompañamiento",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "Sucursales, mesas y empleados ilimitados",
+          "Finanzas, bóveda y socios",
+          "Bitácora y avisos por Telegram",
+          "Tu marca: colores, logo y fuente"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "finanzas",
+          "bitacora",
+          "telegram",
+          "marca"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 3,
+        "active": true,
+        "currency": "USD",
+        "priceMonth": 65,
+        "priceYear": 650
+      }
+    ],
+    "EC": [
+      {
+        "id": 1,
+        "code": "esencial",
+        "name": "Esencial",
+        "tagline": "Para el café, el bar o el restaurante que empieza a ordenar su operación.",
+        "limits": {
+          "sites": 1,
+          "admins": 1,
+          "employees": 5,
+          "tables": 15,
+          "products": 150
+        },
+        "support": "WhatsApp en horario hábil",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "1 sucursal y 5 empleados",
+          "Hasta 15 mesas",
+          "Pedidos, caja y propinas",
+          "Carta, categorías e inventario"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "cuentas_por_cobrar"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 1,
+        "active": true,
+        "currency": "USD",
+        "priceMonth": 22,
+        "priceYear": 220
+      },
+      {
+        "id": 2,
+        "code": "profesional",
+        "name": "Profesional",
+        "tagline": "Para el establecimiento con buen movimiento que quiere vender más y controlar todo.",
+        "limits": {
+          "sites": 3,
+          "admins": 3,
+          "employees": 25,
+          "tables": 60,
+          "products": 600
+        },
+        "support": "WhatsApp y llamada",
+        "highlight": true,
+        "badge": "Más elegido",
+        "bullets": [
+          "3 sucursales y 25 empleados",
+          "Hasta 60 mesas",
+          "Carta por QR con pedido desde la mesa",
+          "Reportes, promociones e incidentes"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "telegram"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 2,
+        "active": true,
+        "currency": "USD",
+        "priceMonth": 42,
+        "priceYear": 420
+      },
+      {
+        "id": 3,
+        "code": "premium",
+        "name": "Premium",
+        "tagline": "Para grupos, discotecas y cadenas con varias sucursales y socios.",
+        "limits": {
+          "sites": null,
+          "admins": 10,
+          "employees": null,
+          "tables": null,
+          "products": null
+        },
+        "support": "Prioritario con acompañamiento",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "Sucursales, mesas y empleados ilimitados",
+          "Finanzas, bóveda y socios",
+          "Bitácora y avisos por Telegram",
+          "Tu marca: colores, logo y fuente"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "finanzas",
+          "bitacora",
+          "telegram",
+          "marca"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 3,
+        "active": true,
+        "currency": "USD",
+        "priceMonth": 79,
+        "priceYear": 790
+      }
+    ],
+    "PE": [
+      {
+        "id": 1,
+        "code": "esencial",
+        "name": "Esencial",
+        "tagline": "Para el café, el bar o el restaurante que empieza a ordenar su operación.",
+        "limits": {
+          "sites": 1,
+          "admins": 1,
+          "employees": 5,
+          "tables": 15,
+          "products": 150
+        },
+        "support": "WhatsApp en horario hábil",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "1 sucursal y 5 empleados",
+          "Hasta 15 mesas",
+          "Pedidos, caja y propinas",
+          "Carta, categorías e inventario"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "cuentas_por_cobrar"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 1,
+        "active": true,
+        "currency": "PEN",
+        "priceMonth": 79,
+        "priceYear": 790
+      },
+      {
+        "id": 2,
+        "code": "profesional",
+        "name": "Profesional",
+        "tagline": "Para el establecimiento con buen movimiento que quiere vender más y controlar todo.",
+        "limits": {
+          "sites": 3,
+          "admins": 3,
+          "employees": 25,
+          "tables": 60,
+          "products": 600
+        },
+        "support": "WhatsApp y llamada",
+        "highlight": true,
+        "badge": "Más elegido",
+        "bullets": [
+          "3 sucursales y 25 empleados",
+          "Hasta 60 mesas",
+          "Carta por QR con pedido desde la mesa",
+          "Reportes, promociones e incidentes"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "telegram"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 2,
+        "active": true,
+        "currency": "PEN",
+        "priceMonth": 155,
+        "priceYear": 1549
+      },
+      {
+        "id": 3,
+        "code": "premium",
+        "name": "Premium",
+        "tagline": "Para grupos, discotecas y cadenas con varias sucursales y socios.",
+        "limits": {
+          "sites": null,
+          "admins": 10,
+          "employees": null,
+          "tables": null,
+          "products": null
+        },
+        "support": "Prioritario con acompañamiento",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "Sucursales, mesas y empleados ilimitados",
+          "Finanzas, bóveda y socios",
+          "Bitácora y avisos por Telegram",
+          "Tu marca: colores, logo y fuente"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "finanzas",
+          "bitacora",
+          "telegram",
+          "marca"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 3,
+        "active": true,
+        "currency": "PEN",
+        "priceMonth": 289,
+        "priceYear": 2889
+      }
+    ],
+    "BO": [
+      {
+        "id": 1,
+        "code": "esencial",
+        "name": "Esencial",
+        "tagline": "Para el café, el bar o el restaurante que empieza a ordenar su operación.",
+        "limits": {
+          "sites": 1,
+          "admins": 1,
+          "employees": 5,
+          "tables": 15,
+          "products": 150
+        },
+        "support": "WhatsApp en horario hábil",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "1 sucursal y 5 empleados",
+          "Hasta 15 mesas",
+          "Pedidos, caja y propinas",
+          "Carta, categorías e inventario"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "cuentas_por_cobrar"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 1,
+        "active": true,
+        "currency": "BOB",
+        "priceMonth": 149,
+        "priceYear": 1489
+      },
+      {
+        "id": 2,
+        "code": "profesional",
+        "name": "Profesional",
+        "tagline": "Para el establecimiento con buen movimiento que quiere vender más y controlar todo.",
+        "limits": {
+          "sites": 3,
+          "admins": 3,
+          "employees": 25,
+          "tables": 60,
+          "products": 600
+        },
+        "support": "WhatsApp y llamada",
+        "highlight": true,
+        "badge": "Más elegido",
+        "bullets": [
+          "3 sucursales y 25 empleados",
+          "Hasta 60 mesas",
+          "Carta por QR con pedido desde la mesa",
+          "Reportes, promociones e incidentes"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "telegram"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 2,
+        "active": true,
+        "currency": "BOB",
+        "priceMonth": 289,
+        "priceYear": 2889
+      },
+      {
+        "id": 3,
+        "code": "premium",
+        "name": "Premium",
+        "tagline": "Para grupos, discotecas y cadenas con varias sucursales y socios.",
+        "limits": {
+          "sites": null,
+          "admins": 10,
+          "employees": null,
+          "tables": null,
+          "products": null
+        },
+        "support": "Prioritario con acompañamiento",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "Sucursales, mesas y empleados ilimitados",
+          "Finanzas, bóveda y socios",
+          "Bitácora y avisos por Telegram",
+          "Tu marca: colores, logo y fuente"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "finanzas",
+          "bitacora",
+          "telegram",
+          "marca"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 3,
+        "active": true,
+        "currency": "BOB",
+        "priceMonth": 539,
+        "priceYear": 5388
+      }
+    ],
+    "BR": [
+      {
+        "id": 1,
+        "code": "esencial",
+        "name": "Esencial",
+        "tagline": "Para el café, el bar o el restaurante que empieza a ordenar su operación.",
+        "limits": {
+          "sites": 1,
+          "admins": 1,
+          "employees": 5,
+          "tables": 15,
+          "products": 150
+        },
+        "support": "WhatsApp en horario hábil",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "1 sucursal y 5 empleados",
+          "Hasta 15 mesas",
+          "Pedidos, caja y propinas",
+          "Carta, categorías e inventario"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "cuentas_por_cobrar"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 1,
+        "active": true,
+        "currency": "BRL",
+        "priceMonth": 109,
+        "priceYear": 1090
+      },
+      {
+        "id": 2,
+        "code": "profesional",
+        "name": "Profesional",
+        "tagline": "Para el establecimiento con buen movimiento que quiere vender más y controlar todo.",
+        "limits": {
+          "sites": 3,
+          "admins": 3,
+          "employees": 25,
+          "tables": 60,
+          "products": 600
+        },
+        "support": "WhatsApp y llamada",
+        "highlight": true,
+        "badge": "Más elegido",
+        "bullets": [
+          "3 sucursales y 25 empleados",
+          "Hasta 60 mesas",
+          "Carta por QR con pedido desde la mesa",
+          "Reportes, promociones e incidentes"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "telegram"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 2,
+        "active": true,
+        "currency": "BRL",
+        "priceMonth": 215,
+        "priceYear": 2149
+      },
+      {
+        "id": 3,
+        "code": "premium",
+        "name": "Premium",
+        "tagline": "Para grupos, discotecas y cadenas con varias sucursales y socios.",
+        "limits": {
+          "sites": null,
+          "admins": 10,
+          "employees": null,
+          "tables": null,
+          "products": null
+        },
+        "support": "Prioritario con acompañamiento",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "Sucursales, mesas y empleados ilimitados",
+          "Finanzas, bóveda y socios",
+          "Bitácora y avisos por Telegram",
+          "Tu marca: colores, logo y fuente"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "finanzas",
+          "bitacora",
+          "telegram",
+          "marca"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 3,
+        "active": true,
+        "currency": "BRL",
+        "priceMonth": 399,
+        "priceYear": 3988
+      }
+    ],
+    "PY": [
+      {
+        "id": 1,
+        "code": "esencial",
+        "name": "Esencial",
+        "tagline": "Para el café, el bar o el restaurante que empieza a ordenar su operación.",
+        "limits": {
+          "sites": 1,
+          "admins": 1,
+          "employees": 5,
+          "tables": 15,
+          "products": 150
+        },
+        "support": "WhatsApp en horario hábil",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "1 sucursal y 5 empleados",
+          "Hasta 15 mesas",
+          "Pedidos, caja y propinas",
+          "Carta, categorías e inventario"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "cuentas_por_cobrar"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 1,
+        "active": true,
+        "currency": "PYG",
+        "priceMonth": 159000,
+        "priceYear": 1589000
+      },
+      {
+        "id": 2,
+        "code": "profesional",
+        "name": "Profesional",
+        "tagline": "Para el establecimiento con buen movimiento que quiere vender más y controlar todo.",
+        "limits": {
+          "sites": 3,
+          "admins": 3,
+          "employees": 25,
+          "tables": 60,
+          "products": 600
+        },
+        "support": "WhatsApp y llamada",
+        "highlight": true,
+        "badge": "Más elegido",
+        "bullets": [
+          "3 sucursales y 25 empleados",
+          "Hasta 60 mesas",
+          "Carta por QR con pedido desde la mesa",
+          "Reportes, promociones e incidentes"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "telegram"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 2,
+        "active": true,
+        "currency": "PYG",
+        "priceMonth": 309000,
+        "priceYear": 3089000
+      },
+      {
+        "id": 3,
+        "code": "premium",
+        "name": "Premium",
+        "tagline": "Para grupos, discotecas y cadenas con varias sucursales y socios.",
+        "limits": {
+          "sites": null,
+          "admins": 10,
+          "employees": null,
+          "tables": null,
+          "products": null
+        },
+        "support": "Prioritario con acompañamiento",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "Sucursales, mesas y empleados ilimitados",
+          "Finanzas, bóveda y socios",
+          "Bitácora y avisos por Telegram",
+          "Tu marca: colores, logo y fuente"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "finanzas",
+          "bitacora",
+          "telegram",
+          "marca"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 3,
+        "active": true,
+        "currency": "PYG",
+        "priceMonth": 579000,
+        "priceYear": 5788000
+      }
+    ],
+    "CL": [
+      {
+        "id": 1,
+        "code": "esencial",
+        "name": "Esencial",
+        "tagline": "Para el café, el bar o el restaurante que empieza a ordenar su operación.",
+        "limits": {
+          "sites": 1,
+          "admins": 1,
+          "employees": 5,
+          "tables": 15,
+          "products": 150
+        },
+        "support": "WhatsApp en horario hábil",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "1 sucursal y 5 empleados",
+          "Hasta 15 mesas",
+          "Pedidos, caja y propinas",
+          "Carta, categorías e inventario"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "cuentas_por_cobrar"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 1,
+        "active": true,
+        "currency": "CLP",
+        "priceMonth": 19900,
+        "priceYear": 198900
+      },
+      {
+        "id": 2,
+        "code": "profesional",
+        "name": "Profesional",
+        "tagline": "Para el establecimiento con buen movimiento que quiere vender más y controlar todo.",
+        "limits": {
+          "sites": 3,
+          "admins": 3,
+          "employees": 25,
+          "tables": 60,
+          "products": 600
+        },
+        "support": "WhatsApp y llamada",
+        "highlight": true,
+        "badge": "Más elegido",
+        "bullets": [
+          "3 sucursales y 25 empleados",
+          "Hasta 60 mesas",
+          "Carta por QR con pedido desde la mesa",
+          "Reportes, promociones e incidentes"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "telegram"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 2,
+        "active": true,
+        "currency": "CLP",
+        "priceMonth": 38900,
+        "priceYear": 388800
+      },
+      {
+        "id": 3,
+        "code": "premium",
+        "name": "Premium",
+        "tagline": "Para grupos, discotecas y cadenas con varias sucursales y socios.",
+        "limits": {
+          "sites": null,
+          "admins": 10,
+          "employees": null,
+          "tables": null,
+          "products": null
+        },
+        "support": "Prioritario con acompañamiento",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "Sucursales, mesas y empleados ilimitados",
+          "Finanzas, bóveda y socios",
+          "Bitácora y avisos por Telegram",
+          "Tu marca: colores, logo y fuente"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "finanzas",
+          "bitacora",
+          "telegram",
+          "marca"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 3,
+        "active": true,
+        "currency": "CLP",
+        "priceMonth": 72900,
+        "priceYear": 728700
+      }
+    ],
+    "AR": [
+      {
+        "id": 1,
+        "code": "esencial",
+        "name": "Esencial",
+        "tagline": "Para el café, el bar o el restaurante que empieza a ordenar su operación.",
+        "limits": {
+          "sites": 1,
+          "admins": 1,
+          "employees": 5,
+          "tables": 15,
+          "products": 150
+        },
+        "support": "WhatsApp en horario hábil",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "1 sucursal y 5 empleados",
+          "Hasta 15 mesas",
+          "Pedidos, caja y propinas",
+          "Carta, categorías e inventario"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "cuentas_por_cobrar"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 1,
+        "active": true,
+        "currency": "ARS",
+        "priceMonth": 22900,
+        "priceYear": 228900
+      },
+      {
+        "id": 2,
+        "code": "profesional",
+        "name": "Profesional",
+        "tagline": "Para el establecimiento con buen movimiento que quiere vender más y controlar todo.",
+        "limits": {
+          "sites": 3,
+          "admins": 3,
+          "employees": 25,
+          "tables": 60,
+          "products": 600
+        },
+        "support": "WhatsApp y llamada",
+        "highlight": true,
+        "badge": "Más elegido",
+        "bullets": [
+          "3 sucursales y 25 empleados",
+          "Hasta 60 mesas",
+          "Carta por QR con pedido desde la mesa",
+          "Reportes, promociones e incidentes"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "telegram"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 2,
+        "active": true,
+        "currency": "ARS",
+        "priceMonth": 44900,
+        "priceYear": 448800
+      },
+      {
+        "id": 3,
+        "code": "premium",
+        "name": "Premium",
+        "tagline": "Para grupos, discotecas y cadenas con varias sucursales y socios.",
+        "limits": {
+          "sites": null,
+          "admins": 10,
+          "employees": null,
+          "tables": null,
+          "products": null
+        },
+        "support": "Prioritario con acompañamiento",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "Sucursales, mesas y empleados ilimitados",
+          "Finanzas, bóveda y socios",
+          "Bitácora y avisos por Telegram",
+          "Tu marca: colores, logo y fuente"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "finanzas",
+          "bitacora",
+          "telegram",
+          "marca"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 3,
+        "active": true,
+        "currency": "ARS",
+        "priceMonth": 84900,
+        "priceYear": 848700
+      }
+    ],
+    "UY": [
+      {
+        "id": 1,
+        "code": "esencial",
+        "name": "Esencial",
+        "tagline": "Para el café, el bar o el restaurante que empieza a ordenar su operación.",
+        "limits": {
+          "sites": 1,
+          "admins": 1,
+          "employees": 5,
+          "tables": 15,
+          "products": 150
+        },
+        "support": "WhatsApp en horario hábil",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "1 sucursal y 5 empleados",
+          "Hasta 15 mesas",
+          "Pedidos, caja y propinas",
+          "Carta, categorías e inventario"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "cuentas_por_cobrar"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 1,
+        "active": true,
+        "currency": "UYU",
+        "priceMonth": 890,
+        "priceYear": 8896
+      },
+      {
+        "id": 2,
+        "code": "profesional",
+        "name": "Profesional",
+        "tagline": "Para el establecimiento con buen movimiento que quiere vender más y controlar todo.",
+        "limits": {
+          "sites": 3,
+          "admins": 3,
+          "employees": 25,
+          "tables": 60,
+          "products": 600
+        },
+        "support": "WhatsApp y llamada",
+        "highlight": true,
+        "badge": "Más elegido",
+        "bullets": [
+          "3 sucursales y 25 empleados",
+          "Hasta 60 mesas",
+          "Carta por QR con pedido desde la mesa",
+          "Reportes, promociones e incidentes"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "telegram"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 2,
+        "active": true,
+        "currency": "UYU",
+        "priceMonth": 1690,
+        "priceYear": 16900
+      },
+      {
+        "id": 3,
+        "code": "premium",
+        "name": "Premium",
+        "tagline": "Para grupos, discotecas y cadenas con varias sucursales y socios.",
+        "limits": {
+          "sites": null,
+          "admins": 10,
+          "employees": null,
+          "tables": null,
+          "products": null
+        },
+        "support": "Prioritario con acompañamiento",
+        "highlight": false,
+        "badge": null,
+        "bullets": [
+          "Sucursales, mesas y empleados ilimitados",
+          "Finanzas, bóveda y socios",
+          "Bitácora y avisos por Telegram",
+          "Tu marca: colores, logo y fuente"
+        ],
+        "features": [
+          "mesas",
+          "caja",
+          "productos",
+          "comandas",
+          "carta_qr",
+          "cuentas_por_cobrar",
+          "promociones",
+          "incidentes",
+          "reportes",
+          "finanzas",
+          "bitacora",
+          "telegram",
+          "marca"
+        ],
+        "annualDiscount": 16.7,
+        "trialDays": 15,
+        "sortOrder": 3,
+        "active": true,
+        "currency": "UYU",
+        "priceMonth": 3190,
+        "priceYear": 31900
+      }
+    ]
+  }
+}

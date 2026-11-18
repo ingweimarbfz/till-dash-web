@@ -1,0 +1,19 @@
+---
+import { money, limitText } from '../lib/plans.js'
+import { demoLink } from '../lib/config.js'
+const { plans, country } = Astro.props
+---
+<div class="plans">
+  {plans.map((p) => (
+    <article class={`plan${p.highlight ? ' hl' : ''}`}>
+      {p.badge && <span class="plan-badge">★ {p.badge}</span>}
+      <h3>{p.name}</h3>
+      <p class="plan-tag">{p.tagline}</p>
+      <p class="plan-price"><b>{money(p.priceMonth, country)}</b> <span>/ mes · {p.currency}</span></p>
+      <p class="plan-sub">o {money(p.priceYear, country)} al año ({String(p.annualDiscount).replace('.', ',')} % menos){p.trialDays ? ` · ${p.trialDays} días de prueba` : ''}</p>
+      <ul>{(p.bullets || []).map((b) => <li>{b}</li>)}</ul>
+      <p class="plan-meta">{limitText(p.limits.tables)} mesas · {limitText(p.limits.employees)} empleados · Soporte: {p.support}</p>
+      <a class={`btn${p.highlight ? '' : ' outline'}`} href={demoLink(`cotización del plan ${p.name} de TillDash+ en ${country.name}`)}>Quiero el plan {p.name}</a>
+    </article>
+  ))}
+</div>

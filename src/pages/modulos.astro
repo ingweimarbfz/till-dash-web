@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro'
+import { MODULES } from '../lib/modules.js'
+import { demoLink } from '../lib/config.js'
+const jsonLd = [{ '@context': 'https://schema.org', '@type': 'ItemList', name: 'Módulos de TillDash+', itemListElement: MODULES.map((m, i) => ({ '@type': 'ListItem', position: i + 1, name: m.name, description: m.description })) }]
+---
+<Base title="Módulos: mesas, carta QR, comandas, caja, inventario y finanzas" description="Conoce los módulos de TillDash+: mesas y pedidos, carta digital por QR, comandas de cocina y bar, caja y propinas, inventario por bodega, finanzas con socios y reportes para tu restaurante o bar." jsonLd={jsonLd}>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Inicio</a> › Módulos</p>
+      <h1>Módulos de TillDash+</h1>
+      <p class="lead">Cada plan incluye los módulos según el tamaño de tu operación. Puedes ver cuáles trae cada uno en <a href="/precios">precios</a>.</p>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap modules">
+      {MODULES.map((m) => (
+        <article class="module" id={m.key}>
+          <span class="card-ico" aria-hidden="true">{m.icon}</span>
+          <div>
+            <h2>{m.name}</h2>
+            <p>{m.description}</p>
+            <ul class="checks dark">{m.points.map((p) => <li>{p}</li>)}</ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap band-in">
+      <h2>¿Lo vemos con la carta de tu establecimiento?</h2>
+      <a class="btn lg" href={demoLink()}>Pedir demostración</a>
+    </div>
+  </section>
+</Base>
