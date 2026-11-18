@@ -12,7 +12,7 @@ const { plans, country } = Astro.props
       <p class="plan-price"><b>{money(p.priceMonth, country)}</b> <span>/ mes · {p.currency}</span></p>
       <p class="plan-sub">o {money(p.priceYear, country)} al año ({String(p.annualDiscount).replace('.', ',')} % menos){p.trialDays ? ` · ${p.trialDays} días de prueba` : ''}</p>
       <ul>{(p.bullets || []).map((b) => <li>{b}</li>)}</ul>
-      <p class="plan-meta">{limitText(p.limits.tables)} mesas · {limitText(p.limits.employees)} empleados · Soporte: {p.support}</p>
+      <p class="plan-meta">{p.limits.tables === 0 ? 'Sin mesas: ventas a domicilio' : `${limitText(p.limits.tables)} mesas`} · {limitText(p.limits.employees)} empleados · Soporte: {p.support}</p>
       <a class={`btn${p.highlight ? '' : ' outline'}`} href={demoLink(`cotización del plan ${p.name} de TillDash+ en ${country.name}`)}>Quiero el plan {p.name}</a>
     </article>
   ))}
